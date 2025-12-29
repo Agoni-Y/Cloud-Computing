@@ -1,0 +1,51 @@
+pki:
+  ca: /mnt/e/nebula-linux-386/ca.crt
+  cert: /mnt/e/nebula-linux-386/MBP15.crt
+  key: /mnt/e/nebula-linux-386/MBP15.key
+
+static_host_map:
+  "192.168.100.1": ["127.0.0.1:4242"]
+
+lighthouse:
+  am_lighthouse: false
+  interval: 60
+  hosts:
+    - "192.168.100.1"
+
+listen:
+  host: "[::]"
+  port: 4243
+
+punchy:
+  punch: true
+
+cipher: chachapoly
+
+tun:
+  disabled: false
+  dev: nebula2
+  drop_local_broadcast: false
+  drop_multicast: false
+  tx_queue: 500
+  mtu: 1300
+
+logging:
+  level: info
+  format: text
+
+firewall:
+  conntrack:
+    tcp_timeout: 12m
+    udp_timeout: 3m
+    default_timeout: 10m
+    max_connections: 100000
+
+  outbound:
+    - port: any
+      proto: any
+      host: any
+
+  inbound:
+    - port: any
+      proto: any
+      host: any
