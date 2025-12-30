@@ -1,0 +1,11 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: sklearn-iris
+  namespace: default
+spec:
+  predictor:
+    model:
+      modelFormat:
+        name: sklearn
+      storageUri: https://raw.githubusercontent.com/kserve/kserve/master/docs/samples/v1beta1/sklearn/iris/model.joblib
